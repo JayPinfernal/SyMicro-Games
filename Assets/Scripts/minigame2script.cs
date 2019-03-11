@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class minigame2script : MonoBehaviour
 {
-    float speed = 111f;
+    float speed = 171f;
     String[] questions = { "BIU Stuff 1", "EU Stuff 1", "BIU Stuff 2", "EU Stuff 2", "BIU Stuff 3", "EU Stuff 3" };
     String[] answers = { "biu","eu", "biu", "eu", "biu", "eu" };
     Rigidbody2D rb2d;
@@ -51,19 +51,21 @@ public class minigame2script : MonoBehaviour
     void goUp()
     {
         
-        var newYpos = Mathf.Clamp(transform.position.y + 150, 0, 471);
+        var newYpos = Mathf.Clamp(transform.position.y + 150, 0, 871);
         var deltaX = Time.deltaTime * speed;
         var newXpos = Mathf.Clamp(transform.position.x + deltaX, 0, 1946);
         transform.position = new Vector2(newXpos, newYpos);
+        Debug.Log("New y position is " + newYpos);
     }
 
     void goDown()
     {
         
-        var newYpos = Mathf.Clamp(transform.position.y - 150, 0, 471);
+        var newYpos = Mathf.Clamp(transform.position.y - 250, 0, 871);
         var deltaX = Time.deltaTime * speed;
         var newXpos = Mathf.Clamp(transform.position.x + deltaX, 0, 1946);
         transform.position = new Vector2(newXpos, newYpos);
+        Debug.Log("New y position is " + newYpos);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
