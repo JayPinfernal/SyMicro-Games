@@ -29,7 +29,7 @@ public class minigame2script : MonoBehaviour
     private void StrafeLeft()
     {
         var deltaX = Time.deltaTime * speed;
-        var newXpos = Mathf.Clamp(transform.position.x + deltaX, 0, 946);
+        var newXpos = Mathf.Clamp(transform.position.x + deltaX, 0, 1946);
         transform.position = new Vector2(newXpos, transform.position.y);
     }
 
@@ -53,7 +53,7 @@ public class minigame2script : MonoBehaviour
         
         var newYpos = Mathf.Clamp(transform.position.y + 150, 0, 471);
         var deltaX = Time.deltaTime * speed;
-        var newXpos = Mathf.Clamp(transform.position.x + deltaX, 0, 946);
+        var newXpos = Mathf.Clamp(transform.position.x + deltaX, 0, 1946);
         transform.position = new Vector2(newXpos, newYpos);
     }
 
@@ -62,7 +62,7 @@ public class minigame2script : MonoBehaviour
         
         var newYpos = Mathf.Clamp(transform.position.y - 150, 0, 471);
         var deltaX = Time.deltaTime * speed;
-        var newXpos = Mathf.Clamp(transform.position.x + deltaX, 0, 946);
+        var newXpos = Mathf.Clamp(transform.position.x + deltaX, 0, 1946);
         transform.position = new Vector2(newXpos, newYpos);
     }
 
