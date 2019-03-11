@@ -13,16 +13,21 @@ public class minigame2script : MonoBehaviour
     Rigidbody2D rb2d;
     int ran,score=25;
     [SerializeField] Text theWill;
+    [SerializeField] Sprite beat;
+    [SerializeField] Image pulse;
+    int pts = 0;
     // Start is called before the first frame update
     void Start()
     {
         ran = UnityEngine.Random.Range(1, questions.Length);
         gameObject.GetComponentInChildren<Text>().text = questions[ran];
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(pts==0)
         StrafeLeft();
     }
 
@@ -51,7 +56,7 @@ public class minigame2script : MonoBehaviour
     void goUp()
     {
         
-        var newYpos = Mathf.Clamp(transform.position.y + 150, 0, 871);
+        var newYpos = Mathf.Clamp(transform.position.y + 35, 0, 871);
         var deltaX = Time.deltaTime * speed;
         var newXpos = Mathf.Clamp(transform.position.x + deltaX, 0, 1946);
         transform.position = new Vector2(newXpos, newYpos);
@@ -61,7 +66,7 @@ public class minigame2script : MonoBehaviour
     void goDown()
     {
         
-        var newYpos = Mathf.Clamp(transform.position.y - 250, 0, 871);
+        var newYpos = Mathf.Clamp(transform.position.y - 35, 0, 871);
         var deltaX = Time.deltaTime * speed;
         var newXpos = Mathf.Clamp(transform.position.x + deltaX, 0, 1946);
         transform.position = new Vector2(newXpos, newYpos);
@@ -77,16 +82,26 @@ public class minigame2script : MonoBehaviour
         }
         else if (collision.gameObject.tag == answers[ran])
         {
+            pts = 1;
+            StartCoroutine("lifeLine");
             theWill.text = "Well Done !";
            FindObjectOfType<GameSession>().addToScore(score);
+           
             SceneManager.LoadScene("StartScreen");
         }
         else
         {
+            pts = 1;
             theWill.text = "Wrong Part !";
             SceneManager.LoadScene("StartScreen");
         }
         
+    }
+
+    IEnumerator lifeLine()
+    {
+        pulse.sprite = beat;
+        yield return new WaitForSeconds(1.75f);
     }
 
 }
