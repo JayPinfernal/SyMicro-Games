@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GoToZone : MonoBehaviour
 {
-    [SerializeField] Text score;
+    [SerializeField] Text score,state;
     string[] zones = { "MTMG1", "MTMG2" };
     int ranzone;
     // Start is called before the first frame update
@@ -14,6 +14,7 @@ public class GoToZone : MonoBehaviour
     {
         ranzone = Random.Range(0, zones.Length);
         score.text = FindObjectOfType<GameSession>().getScore().ToString();
+        state.text = FindObjectOfType<GameSession>().getStatus();
     }
 
     // Update is called once per frame
@@ -25,6 +26,15 @@ public class GoToZone : MonoBehaviour
     public void goToTimer()
     {
         SceneManager.LoadScene(zones[ranzone]);
+    }
+
+    public void exitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
     }
 
 }

@@ -78,22 +78,26 @@ public class minigame2script : MonoBehaviour
         if(collision.gameObject.tag == "end")
         {
             theWill.text = "OH NO !";
-            SceneManager.LoadScene("StartScreen");
+            
+            FindObjectOfType<GameSession>().updateStatus("OOF, BADLY CRASHED! Hope you're fine");
+            StartCoroutine(goToNextScene());
         }
         else if (collision.gameObject.tag == answers[ran])
         {
             pts = 1;
-            StartCoroutine("lifeLine");
+            
             theWill.text = "Well Done !";
            FindObjectOfType<GameSession>().addToScore(score);
-           
-            SceneManager.LoadScene("StartScreen");
+            StartCoroutine(lifeLine());
+            FindObjectOfType<GameSession>().updateStatus("Well done, this is the right answer");
+            StartCoroutine(goToNextScene());
         }
         else
         {
             pts = 1;
             theWill.text = "Wrong Part !";
-            SceneManager.LoadScene("StartScreen");
+             FindObjectOfType<GameSession>().updateStatus("Sorry but "+questions[ran]+" involves "+ answers[ran] );
+            StartCoroutine(goToNextScene());
         }
         
     }
@@ -101,7 +105,13 @@ public class minigame2script : MonoBehaviour
     IEnumerator lifeLine()
     {
         pulse.sprite = beat;
-        yield return new WaitForSeconds(1.75f);
+        yield return new WaitForSeconds(0.5f);
+    }
+
+    IEnumerator goToNextScene()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("StartScreen");
     }
 
 }

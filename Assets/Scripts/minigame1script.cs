@@ -73,21 +73,24 @@ public class minigame1script : MonoBehaviour
             else
             {
                 timer.text = "Time is up";
-                SceneManager.LoadScene("StartScreen");
+                StartCoroutine(goToNextScene());
+                FindObjectOfType<GameSession>().updateStatus("Time Is Up sorry for the speed");
             }
         }
         else if(valu == qstval)
         {
             timer.text = "Well Done";
-            SceneManager.LoadScene("StartScreen");
+            StartCoroutine(goToNextScene());
             int bonus = (int)System.Math.Floor(count);
             score = 25 + bonus;
             FindObjectOfType<GameSession>().addToScore(score);
+            FindObjectOfType<GameSession>().updateStatus("Well done, this is the right answer");
         }
         else
         {
             timer.text = "Too Bad";
-            SceneManager.LoadScene("StartScreen");
+            StartCoroutine(goToNextScene());
+            FindObjectOfType<GameSession>().updateStatus("Wrong Answer!. The correct answer is "+ answer[qstval]);
         }
          
 
@@ -104,5 +107,11 @@ public class minigame1script : MonoBehaviour
     public void Opt3()
     {
         valu = ran3;
+    }
+
+    IEnumerator goToNextScene()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene("StartScreen");
     }
 }

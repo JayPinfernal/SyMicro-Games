@@ -6,7 +6,8 @@ using UnityEngine;
 public class GameSession : MonoBehaviour
 {
     int score = 0, value = 0;
-
+    int life = 4;
+    String status = "";
     private void Awake()
     {
         SetUpSingleton();
@@ -46,5 +47,14 @@ public class GameSession : MonoBehaviour
     public void resetGame()
     {
         Destroy(gameObject);
+    }
+
+    public void updateStatus(String txt)
+    {
+        status = txt;
+    }
+    public String getStatus()
+    {
+        return status;
     }
 }
