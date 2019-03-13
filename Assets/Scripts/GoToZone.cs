@@ -28,6 +28,7 @@ public class GoToZone : MonoBehaviour
         SceneManager.LoadScene(zones[ranzone]);
     }
 
+
     public void exitGame()
     {
 #if UNITY_EDITOR
@@ -36,5 +37,7 @@ public class GoToZone : MonoBehaviour
     Application.Quit();
 #endif
     }
+
+
 
 }
