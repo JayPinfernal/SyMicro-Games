@@ -94,10 +94,10 @@ public class minigame1script : MonoBehaviour
          if (valu == qstval)
         {
             timer.text = "Well Done";
-            StartCoroutine(goToNextSceneSuccess());
 
-            FindObjectOfType<GameSession>().addToScore(score);
+            
             FindObjectOfType<GameSession>().updateStatus("Well done, this is the right answer");
+            StartCoroutine(goToNextSceneSuccess());
         }
         else
         {
@@ -114,7 +114,7 @@ public class minigame1script : MonoBehaviour
             timer.text = "Well Done";
             
 
-            FindObjectOfType<GameSession>().addToScore(score);
+            
             FindObjectOfType<GameSession>().updateStatus("Well done, this is the right answer");
             StartCoroutine(goToNextSceneSuccess());
         }
@@ -131,10 +131,10 @@ public class minigame1script : MonoBehaviour
         if (valu == qstval)
         {
             timer.text = "Well Done";
-            StartCoroutine(goToNextSceneSuccess());
 
-            FindObjectOfType<GameSession>().addToScore(score);
+            
             FindObjectOfType<GameSession>().updateStatus("Well done, this is the right answer");
+            StartCoroutine(goToNextSceneSuccess());
         }
         else
         {
@@ -155,6 +155,7 @@ public class minigame1script : MonoBehaviour
         bonus = (int)System.Math.Floor(count);
         Debug.Log(bonus);
         score = 25 + bonus;
+        FindObjectOfType<GameSession>().addToScore(score);
         yield return new WaitForSeconds(1.15f);
         SceneManager.LoadScene("StartScreen");
     }
