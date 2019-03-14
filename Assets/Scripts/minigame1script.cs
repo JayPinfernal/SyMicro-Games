@@ -25,7 +25,7 @@ public class minigame1script : MonoBehaviour
     string qstn;
     int ran1, ran2, ran3, ranq, qstval;
     int valu = 0,score;
-
+    int bonus;
      float count = 7;
     // Start is called before the first frame update
     void Start()
@@ -63,7 +63,8 @@ public class minigame1script : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   if (valu == 0)
+    {
+        if (valu == 0)
         {
             if (count >= 0)
             {
@@ -77,12 +78,24 @@ public class minigame1script : MonoBehaviour
                 FindObjectOfType<GameSession>().updateStatus("Time Is Up sorry for the speed");
             }
         }
-        else if(valu == qstval)
+        else
+        {
+            if (valu==qstval)
+                timer.text = "Well Done";
+            else
+                timer.text = "Too Bad";
+        }
+
+
+        }
+    public void Opt1()
+    {
+        valu = ran1;
+         if (valu == qstval)
         {
             timer.text = "Well Done";
-            StartCoroutine(goToNextScene());
-            int bonus = (int)System.Math.Floor(count);
-            score = 25 + bonus;
+            StartCoroutine(goToNextSceneSuccess());
+
             FindObjectOfType<GameSession>().addToScore(score);
             FindObjectOfType<GameSession>().updateStatus("Well done, this is the right answer");
         }
@@ -90,27 +103,58 @@ public class minigame1script : MonoBehaviour
         {
             timer.text = "Too Bad";
             StartCoroutine(goToNextScene());
-            FindObjectOfType<GameSession>().updateStatus("Wrong Answer!. The correct answer is "+ answer[qstval]);
+            FindObjectOfType<GameSession>().updateStatus("Wrong Answer!. The correct answer is " + answer[qstval]);
         }
-         
-
-
-    }
-    public void Opt1()
-    {
-        valu = ran1;
     }
     public void Opt2()
     {
         valu = ran2;
+        if (valu == qstval)
+        {
+            timer.text = "Well Done";
+            
+
+            FindObjectOfType<GameSession>().addToScore(score);
+            FindObjectOfType<GameSession>().updateStatus("Well done, this is the right answer");
+            StartCoroutine(goToNextSceneSuccess());
+        }
+        else
+        {
+            timer.text = "Too Bad";
+            StartCoroutine(goToNextScene());
+            FindObjectOfType<GameSession>().updateStatus("Wrong Answer!. The correct answer is " + answer[qstval]);
+        }
     }
     public void Opt3()
     {
         valu = ran3;
+        if (valu == qstval)
+        {
+            timer.text = "Well Done";
+            StartCoroutine(goToNextSceneSuccess());
+
+            FindObjectOfType<GameSession>().addToScore(score);
+            FindObjectOfType<GameSession>().updateStatus("Well done, this is the right answer");
+        }
+        else
+        {
+            timer.text = "Too Bad";
+            StartCoroutine(goToNextScene());
+            FindObjectOfType<GameSession>().updateStatus("Wrong Answer!. The correct answer is " + answer[qstval]);
+        }
     }
 
     IEnumerator goToNextScene()
     {
+        yield return new WaitForSeconds(1.15f);
+        SceneManager.LoadScene("StartScreen");
+    }
+
+    IEnumerator goToNextSceneSuccess()
+    {
+        bonus = (int)System.Math.Floor(count);
+        Debug.Log(bonus);
+        score = 25 + bonus;
         yield return new WaitForSeconds(1.15f);
         SceneManager.LoadScene("StartScreen");
     }
