@@ -7,6 +7,10 @@ TagManager:
   - biu
   - eu
   - end
+  - syn_err
+  - reg_err
+  - key_err
+  - correct
   layers:
   - Default
   - TransparentFX
