@@ -111,7 +111,7 @@ public class minigame1script : MonoBehaviour
 
     IEnumerator goToNextScene()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.15f);
         SceneManager.LoadScene("StartScreen");
     }
 }

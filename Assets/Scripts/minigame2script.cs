@@ -105,12 +105,12 @@ public class minigame2script : MonoBehaviour
     IEnumerator lifeLine()
     {
         pulse.sprite = beat;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
     }
 
     IEnumerator goToNextScene()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.15f);
         SceneManager.LoadScene("StartScreen");
     }
 
