@@ -66,14 +66,16 @@ public class bossStage3SlaveScript : MonoBehaviour
             {
                 Debug.Log(ic4);
                 stage.text = "ICW4";
+                FindObjectOfType<GameSession>().addToScore(250);
                 StartCoroutine(nextStage4());
             }
             else
             {
                 
                 Debug.Log(ic4);
-                StartCoroutine(playVictory());
                 FindObjectOfType<ICWSession>().resetBoss();
+                StartCoroutine(playVictory());
+                
             }
         }
         else
@@ -117,13 +119,13 @@ public class bossStage3SlaveScript : MonoBehaviour
         bad.gameObject.SetActive(false);
         gate.SetActive(false);
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("Victory");
     }
 
     IEnumerator goHome()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("intermediary");
     }
 
     public void setBtn1()

@@ -148,7 +148,7 @@ public class minigame1script : MonoBehaviour
     {
         yield return new WaitForSeconds(1.15f);
         FindObjectOfType<GameSession>().levelUp();
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("intermediary");
     }
 
     IEnumerator goToNextSceneSuccess()

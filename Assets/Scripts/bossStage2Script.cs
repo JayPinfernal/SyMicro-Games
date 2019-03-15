@@ -68,20 +68,25 @@ public class bossStage2Script : MonoBehaviour
             {
                 Debug.Log(casc);
                 stage.text = "ICW3";
+                FindObjectOfType<GameSession>().addToScore(250);
                 StartCoroutine(nextStage3());
             }
             else if (ic4 == 1)
             {
                 Debug.Log(ic4);
                 stage.text = "ICW4";
+                FindObjectOfType<GameSession>().addToScore(250);
                 StartCoroutine(nextStage4());
             }
             else
             {
                 Debug.Log(casc);
                 Debug.Log(ic4);
-                StartCoroutine(playVictory());
+                FindObjectOfType<GameSession>().addToScore(250);
                 FindObjectOfType<ICWSession>().resetBoss();
+                StartCoroutine(playVictory());
+
+               
                 
             }
         }
@@ -142,12 +147,12 @@ public class bossStage2Script : MonoBehaviour
         bad.gameObject.SetActive(false);
         gate.SetActive(false);
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("Victory");
     }
     IEnumerator goHome()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("intermediary");
     }
 
     public void setBtn1()

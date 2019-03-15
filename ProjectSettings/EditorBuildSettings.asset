@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MTMG7-4.unity
     guid: 9d4c9f26d9dcb5e4c86618fdcec2a45b
+  - enabled: 1
+    path: Assets/Scenes/Victory.unity
+    guid: 68b39dcd0b0c91246aa3c7931a080d5d
   m_configObjects: {}

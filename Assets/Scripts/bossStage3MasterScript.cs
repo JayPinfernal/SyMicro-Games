@@ -51,8 +51,10 @@ public class bossStage3MasterScript : MonoBehaviour
         {
             bingo.gameObject.SetActive(true);
             stage.text = "ICW3-S";
+            FindObjectOfType<GameSession>().addToScore(250);
             FindObjectOfType<ICWSession>().setMaster(ran1);
             StartCoroutine(nextStage());
+
         }
         else
         {

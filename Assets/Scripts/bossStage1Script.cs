@@ -76,6 +76,7 @@ public class bossStage1Script : MonoBehaviour
         {
             bingo.gameObject.SetActive(true);
             stage.text = "ICW 2";
+            FindObjectOfType<GameSession>().addToScore(250);
             StartCoroutine(nextStage());
         }
         else

@@ -56,9 +56,12 @@ public class bossStage4Script : MonoBehaviour
         }
         Debug.Log(ans);
         if (ans.Equals(ans1))
+
         {
-            StartCoroutine(playVictory());
+            FindObjectOfType<GameSession>().addToScore(250);
             FindObjectOfType<ICWSession>().resetBoss();
+            StartCoroutine(playVictory());
+            
         }
         else
         {
@@ -83,12 +86,12 @@ public class bossStage4Script : MonoBehaviour
         bad.gameObject.SetActive(false);
         gate.SetActive(false);
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("VICTORY");
     }
     IEnumerator goHome()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("intermediary");
     }
     // Update is called once per frame
     void Update()

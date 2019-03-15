@@ -3,17 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
-public class GoToZone : MonoBehaviour
+public class victoryScript : MonoBehaviour
 {
-    [SerializeField] Text score,state;
-    int ranzone;
+    public Text score;
     // Start is called before the first frame update
     void Start()
     {
-        score.text = FindObjectOfType<GameSession>().getScore().ToString();
-        FindObjectOfType<GameSession>().updateStatus("Let's Go");
-
+        score.text = "Score :- " + FindObjectOfType<GameSession>().getScore().ToString();
     }
 
     // Update is called once per frame
@@ -22,11 +18,11 @@ public class GoToZone : MonoBehaviour
         
     }
 
-    public void goToTimer()
+    public void goHome()
     {
-        SceneManager.LoadScene("intermediary");
+        FindObjectOfType<GameSession>().resetGame();
+        SceneManager.LoadScene("StartScreen");
     }
-
 
     public void exitGame()
     {
@@ -36,7 +32,4 @@ public class GoToZone : MonoBehaviour
     Application.Quit();
 #endif
     }
-
-
-
 }
