@@ -155,7 +155,7 @@ public class minigame1script : MonoBehaviour
     {
         bonus = (int)System.Math.Floor(count);
         Debug.Log(bonus);
-        score = 25 + bonus;
+        score = 20 + bonus;
         FindObjectOfType<GameSession>().addToScore(score);
         FindObjectOfType<GameSession>().levelUp();
         yield return new WaitForSeconds(1.15f);

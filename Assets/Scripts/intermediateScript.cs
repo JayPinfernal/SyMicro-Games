@@ -9,9 +9,9 @@ public class intermediateScript : MonoBehaviour
     public Text score, state,level;
     public Image[] lives;
     int ranzone;
-    string[] zones = { "MTMG1", "MTMG2", "MTMG5", "MTMG6" };
+    string[] zones = { "MTMG1", "MTMG2", "MTMG5", "MTMG6","MTMG3" };
     string[] instructions = { "Select the correct 8086 pin", "Slect whether it is a part of biu or the eu",
-        "Find the one with the greater priority","Select the correct task for the INT 21h"
+        "Find the one with the greater priority","Select the correct task for the INT 21h","Find type of error in instruction (or correct)"
     };
     string review;
     // Start is called before the first frame update
