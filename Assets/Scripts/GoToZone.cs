@@ -7,8 +7,9 @@ using UnityEngine.UI;
 public class GoToZone : MonoBehaviour
 {
     [SerializeField] Text score,state;
-    string[] zones = { "MTMG1", "MTMG2","MTMG5"};
-    string[] instructions = { "Select the correct 8086 pin", "Slect whether it is a part of biu or the eu", "Find the one with the greater priority"
+    string[] zones = { "MTMG1", "MTMG2","MTMG5","MTMG6"};
+    string[] instructions = { "Select the correct 8086 pin", "Slect whether it is a part of biu or the eu",
+        "Find the one with the greater priority","Select the correct task for the INT 21h"
     };
     int ranzone;
     // Start is called before the first frame update

@@ -1443,7 +1443,7 @@ PrefabInstance:
     - target: {fileID: 1348379346947202894, guid: 12f872ddb92b7974181e53b89fbb8da3,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 311.7
+      value: 318.5
       objectReference: {fileID: 0}
     - target: {fileID: 1348379346947202894, guid: 12f872ddb92b7974181e53b89fbb8da3,
         type: 3}
@@ -1453,7 +1453,7 @@ PrefabInstance:
     - target: {fileID: 1348379346947202894, guid: 12f872ddb92b7974181e53b89fbb8da3,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 136
+      value: 149.6
       objectReference: {fileID: 0}
     - target: {fileID: 1348379346947202894, guid: 12f872ddb92b7974181e53b89fbb8da3,
         type: 3}
@@ -1499,17 +1499,22 @@ PrefabInstance:
     - target: {fileID: 1348379346947202892, guid: 12f872ddb92b7974181e53b89fbb8da3,
         type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1348379346947202892, guid: 12f872ddb92b7974181e53b89fbb8da3,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1348379346947202892, guid: 12f872ddb92b7974181e53b89fbb8da3,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1348379346947202892, guid: 12f872ddb92b7974181e53b89fbb8da3,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12f872ddb92b7974181e53b89fbb8da3, type: 3}

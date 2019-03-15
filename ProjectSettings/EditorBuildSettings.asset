@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MTMG5.unity
     guid: c3bba75db348a60498650eda33cc99f4
   - enabled: 1
+    path: Assets/Scenes/MTMG6.unity
+    guid: c249e92157b3743428c2fa34dec45235
+  - enabled: 1
     path: Assets/Scenes/MTMG7-1.unity
     guid: d92b09c6075c9f146b3b1ee8dc5d6100
   - enabled: 1
