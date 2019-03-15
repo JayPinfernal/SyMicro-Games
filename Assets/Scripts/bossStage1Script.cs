@@ -79,7 +79,12 @@ public class bossStage1Script : MonoBehaviour
             StartCoroutine(nextStage());
         }
         else
+        {
+
             bad.gameObject.SetActive(true);
+            FindObjectOfType<ICWSession>().resetBoss();
+            StartCoroutine(goHome());
+        }
         //
 
     }
@@ -99,6 +104,12 @@ public class bossStage1Script : MonoBehaviour
         anim.Play("GateClose", 0, 2.15f);
         yield return new WaitForSeconds(2.15f);
         SceneManager.LoadScene("MTMG7-2");
+    }
+
+    IEnumerator goHome()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("StartScreen");
     }
 
     void setZeroes()

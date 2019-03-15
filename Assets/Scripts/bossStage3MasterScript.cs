@@ -57,6 +57,8 @@ public class bossStage3MasterScript : MonoBehaviour
         else
         {
             bad.gameObject.SetActive(true);
+            FindObjectOfType<ICWSession>().resetBoss();
+            StartCoroutine(goHome());
         }
 
         //
@@ -81,7 +83,11 @@ public class bossStage3MasterScript : MonoBehaviour
         SceneManager.LoadScene("MTMG7-3Slave");
     }
 
-
+    IEnumerator goHome()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("StartScreen");
+    }
     // Update is called once per frame
     void Update()
     {

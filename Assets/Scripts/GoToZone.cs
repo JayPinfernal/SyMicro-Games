@@ -7,17 +7,12 @@ using UnityEngine.UI;
 public class GoToZone : MonoBehaviour
 {
     [SerializeField] Text score,state;
-    string[] zones = { "MTMG1", "MTMG2","MTMG5","MTMG6"};
-    string[] instructions = { "Select the correct 8086 pin", "Slect whether it is a part of biu or the eu",
-        "Find the one with the greater priority","Select the correct task for the INT 21h"
-    };
     int ranzone;
     // Start is called before the first frame update
     void Start()
     {
-        ranzone = Random.Range(0, zones.Length);
-        score.text = FindObjectOfType<GameSession>().getScore().ToString();
-        state.text = FindObjectOfType<GameSession>().getStatus();
+        FindObjectOfType<GameSession>().updateStatus("Let's Go");
+
     }
 
     // Update is called once per frame
@@ -28,7 +23,7 @@ public class GoToZone : MonoBehaviour
 
     public void goToTimer()
     {
-        SceneManager.LoadScene(zones[ranzone]);
+        SceneManager.LoadScene("intermediary");
     }
 
 

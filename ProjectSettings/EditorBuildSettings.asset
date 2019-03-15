@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScreen.unity
     guid: f4d970119701e6e43986b604eec5ace3
   - enabled: 1
+    path: Assets/Scenes/intermediary.unity
+    guid: 3e2ba9f32b6b3774293e392d894225fe
+  - enabled: 1
     path: Assets/Scenes/MTMG1.unity
     guid: 9c0b8111f1ab8a7428fc49e58ed76084
   - enabled: 1

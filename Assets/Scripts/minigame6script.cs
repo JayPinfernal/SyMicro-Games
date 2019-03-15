@@ -132,8 +132,9 @@ public class minigame6script : MonoBehaviour
 
     IEnumerator goToNextScene()
     {
+        FindObjectOfType<GameSession>().levelUp();
         yield return new WaitForSeconds(1.15f);
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("intermediary");
     }
 
     IEnumerator goToNextSceneSuccess()
@@ -142,7 +143,8 @@ public class minigame6script : MonoBehaviour
         Debug.Log(bonus);
         score = 30 + bonus;
         FindObjectOfType<GameSession>().addToScore(score);
+        FindObjectOfType<GameSession>().levelUp();
         yield return new WaitForSeconds(1.15f);
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("intermediary");
     }
 }

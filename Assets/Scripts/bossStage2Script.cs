@@ -82,12 +82,14 @@ public class bossStage2Script : MonoBehaviour
                 Debug.Log(ic4);
                 StartCoroutine(playVictory());
                 FindObjectOfType<ICWSession>().resetBoss();
+                
             }
         }
         else
         {
             bad.gameObject.SetActive(true);
-
+            FindObjectOfType<ICWSession>().resetBoss();
+            StartCoroutine(goHome());
         }
         
         //
@@ -139,6 +141,13 @@ public class bossStage2Script : MonoBehaviour
         bingo.gameObject.SetActive(false);
         bad.gameObject.SetActive(false);
         gate.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("StartScreen");
+    }
+    IEnumerator goHome()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene("StartScreen");
     }
 
     public void setBtn1()

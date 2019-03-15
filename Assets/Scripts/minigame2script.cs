@@ -81,6 +81,7 @@ public class minigame2script : MonoBehaviour
             theWill.text = "OH NO !";
             
             FindObjectOfType<GameSession>().updateStatus("OOF, BADLY CRASHED! Hope you're fine");
+            FindObjectOfType<GameSession>().levelUp();
             StartCoroutine(goToNextScene());
         }
         else if (collision.gameObject.tag == answers[ran])
@@ -89,6 +90,7 @@ public class minigame2script : MonoBehaviour
             
             theWill.text = "Well Done !";
            FindObjectOfType<GameSession>().addToScore(score);
+            FindObjectOfType<GameSession>().levelUp();
             StartCoroutine(lifeLine());
             FindObjectOfType<GameSession>().updateStatus("Well done, this is the right answer");
             StartCoroutine(goToNextScene());
@@ -98,6 +100,7 @@ public class minigame2script : MonoBehaviour
             pts = 1;
             theWill.text = "Wrong Part !";
              FindObjectOfType<GameSession>().updateStatus("Sorry but "+questions[ran]+" involves "+ answers[ran] );
+            FindObjectOfType<GameSession>().levelUp();
             StartCoroutine(goToNextScene());
         }
         
@@ -112,7 +115,7 @@ public class minigame2script : MonoBehaviour
     IEnumerator goToNextScene()
     {
         yield return new WaitForSeconds(1.15f);
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("intermediary");
     }
 
 }
