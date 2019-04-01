@@ -7,11 +7,13 @@ using UnityEngine.UI;
 public class GoToZone : MonoBehaviour
 {
     [SerializeField] Text score,state;
-    int ranzone;
+    int ranzone,highscore;
     // Start is called before the first frame update
     void Start()
     {
-        score.text = FindObjectOfType<GameSession>().getScore().ToString();
+        highscore = PlayerPrefs.GetInt("highscore", 0);
+        score.text = highscore.ToString();
+
         FindObjectOfType<GameSession>().updateStatus("Let's Go");
 
     }

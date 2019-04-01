@@ -66,7 +66,7 @@ public class bossStage3SlaveScript : MonoBehaviour
             {
                 Debug.Log(ic4);
                 stage.text = "ICW4";
-                FindObjectOfType<GameSession>().addToScore(250);
+                
                 StartCoroutine(nextStage4());
             }
             else
@@ -74,6 +74,7 @@ public class bossStage3SlaveScript : MonoBehaviour
                 
                 Debug.Log(ic4);
                 FindObjectOfType<ICWSession>().resetBoss();
+                FindObjectOfType<GameSession>().addToScore(200);
                 StartCoroutine(playVictory());
                 
             }

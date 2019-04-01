@@ -68,21 +68,21 @@ public class bossStage2Script : MonoBehaviour
             {
                 Debug.Log(casc);
                 stage.text = "ICW3";
-                FindObjectOfType<GameSession>().addToScore(250);
+               
                 StartCoroutine(nextStage3());
             }
             else if (ic4 == 1)
             {
                 Debug.Log(ic4);
                 stage.text = "ICW4";
-                FindObjectOfType<GameSession>().addToScore(250);
+                
                 StartCoroutine(nextStage4());
             }
             else
             {
                 Debug.Log(casc);
                 Debug.Log(ic4);
-                FindObjectOfType<GameSession>().addToScore(250);
+                FindObjectOfType<GameSession>().addToScore(150);
                 FindObjectOfType<ICWSession>().resetBoss();
                 StartCoroutine(playVictory());
 
